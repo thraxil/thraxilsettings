@@ -56,3 +56,10 @@ I have three separate modules in there: one for the shared settings,
 one for a regular "production" deployment, and one that sets up the
 base for my current deployment approach inside a docker container that
 mostly just pulls in settings from environment variables.
+
+For a full example, this commit shows one of my apps being converted
+from the old style to the new `thraxilsettings` style:
+
+https://github.com/thraxil/antisocial/commit/ef6347350668662c05489c30e42a105d3825df67
+
+All those deleted lines of code make me happy!
