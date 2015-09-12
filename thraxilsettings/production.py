@@ -1,0 +1,61 @@
+import os.path
+import sys
+
+
+def common(**kwargs):
+    app = kwargs['app']
+    base = kwargs['base']
+    cloudfront = kwargs['cloudfront']
+
+    # have to pull in anything that we'll be changing
+    STATIC_ROOT = kwargs['STATIC_ROOT']
+    INSTALLED_APPS = kwargs['INSTALLED_APPS']
+
+    TEMPLATE_DIRS = (
+        os.path.join(base, "templates"),
+    )
+
+    MEDIA_ROOT = '/var/www/' + app + '/uploads/'
+
+    # put any static media here to override app served static media
+    STATICMEDIA_MOUNTS = [
+        ('/sitemedia', '/var/www/' + app + '/' + app + '/sitemedia'),
+    ]
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': app,
+            'HOST': '',
+            'PORT': 6432,
+            'USER': '',
+            'PASSWORD': '',
+            'ATOMIC_REQUESTS': True,
+        }
+    }
+
+    COMPRESS_ROOT = os.path.join(base, "../media")
+    DEBUG = False
+    TEMPLATE_DEBUG = DEBUG
+
+    AWS_S3_CUSTOM_DOMAIN = cloudfront
+    AWS_STORAGE_BUCKET_NAME = "thraxil-" + app + "-static-prod"
+    AWS_PRELOAD_METADATA = True
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    STATICFILES_STORAGE = 'cacheds3storage.MediaRootS3BotoStorage'
+    S3_URL = 'https://%s/' % AWS_S3_CUSTOM_DOMAIN
+    STATIC_URL = 'https://%s/media/' % AWS_S3_CUSTOM_DOMAIN
+    COMPRESS_ENABLED = True
+    COMPRESS_OFFLINE = True
+    COMPRESS_ROOT = STATIC_ROOT
+    COMPRESS_URL = STATIC_URL
+    DEFAULT_FILE_STORAGE = 'cacheds3storage.MediaRootS3BotoStorage'
+    MEDIA_URL = S3_URL + '/media/'
+    COMPRESS_STORAGE = 'cacheds3storage.CompressorS3BotoStorage'
+    AWS_QUERYSTRING_AUTH = False
+
+    if 'migrate' not in sys.argv:
+        INSTALLED_APPS += [
+            'raven.contrib.django.raven_compat',
+        ]
+    return locals()
