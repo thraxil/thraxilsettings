@@ -31,14 +31,16 @@ app, like the name or base directory to construct it. Eg, in app
         }
     }
 
-So if I just put everything into `thraxilsettings.shared` and do:
+Notice the `'foo'` in there as the name of the database. That makes it
+really awkward to re-use that stanza across apps. If I just put
+everything into `thraxilsettings.shared` and do:
 
     from thraxilsettings.shared import *
 
 
-I'd still have to override or tweak the `DATABASES` in every
-app. Better than the original situation, but still not as clean as I'd
-like.
+I'd still have to override or tweak the `DATABASES` in every app in
+exactly the same way. Better than the original situation, but still
+not as clean as I'd like.
 
 Instead, my solution is to package things up in a function that can be
 passed parameters and return a dictionary of values, which I can then
