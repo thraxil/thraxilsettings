@@ -65,3 +65,10 @@ from the old style to the new `thraxilsettings` style:
 https://github.com/thraxil/antisocial/commit/ef6347350668662c05489c30e42a105d3825df67
 
 All those deleted lines of code make me happy!
+
+And here are typical post-conversion `settings_shared.py` and
+`settings_docker.py` files from another app:
+
+https://github.com/thraxil/myopica/blob/master/myopica/settings_shared.py
+
+https://github.com/thraxil/myopica/blob/master/myopica/settings_docker.py
