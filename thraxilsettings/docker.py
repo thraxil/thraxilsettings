@@ -36,8 +36,6 @@ def common(**kwargs):
     AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY
     AWS_SECRET_ACCESS_KEY = AWS_SECRET_KEY
 
-    RAVEN_DSN = os.environ.get('RAVEN_DSN', '')
-
     if 'ALLOWED_HOSTS' in os.environ:
         ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
@@ -84,12 +82,6 @@ def common(**kwargs):
         COMPRESS_ROOT = STATIC_ROOT
         COMPRESS_URL = STATIC_URL
         COMPRESS_STORAGE = 'cacheds3storage.CompressorS3BotoStorage'
-
-    if RAVEN_DSN and 'migrate' not in sys.argv:
-        INSTALLED_APPS.append('raven.contrib.django.raven_compat')
-        RAVEN_CONFIG = {
-            'dsn': RAVEN_DSN,
-        }
 
     LOGGING = {
         'version': 1,
