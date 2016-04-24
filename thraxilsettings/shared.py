@@ -56,20 +56,22 @@ def common(**kwargs):
     MEDIA_URL = '/uploads/'
     SECRET_KEY = 'you must override this'
     TEMPLATES = [
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS' = [
-            "/var/www/" + app + "/templates/",
-            os.path.join(base, "templates"),
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.core.context_processors.debug',
-                'django.core.context_processors.request',
-                'django.core.context_processors.static',
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS' = [
+                "/var/www/" + app + "/templates/",
+                os.path.join(base, "templates"),
             ],
-        }
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.contrib.auth.context_processors.auth',
+                    'django.core.context_processors.debug',
+                    'django.core.context_processors.request',
+                    'django.core.context_processors.static',
+                ],
+            },
+        },
     ]
 
     MIDDLEWARE_CLASSES = [
