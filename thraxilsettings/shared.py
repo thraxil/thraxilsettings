@@ -58,7 +58,7 @@ def common(**kwargs):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS' = [
+            'DIRS':  [
                 "/var/www/" + app + "/templates/",
                 os.path.join(base, "templates"),
             ],
