@@ -11,10 +11,6 @@ def common(**kwargs):
     STATIC_ROOT = kwargs['STATIC_ROOT']
     INSTALLED_APPS = kwargs['INSTALLED_APPS']
 
-    TEMPLATE_DIRS = (
-        os.path.join(base, "templates"),
-    )
-
     MEDIA_ROOT = '/var/www/' + app + '/uploads/'
 
     # put any static media here to override app served static media
@@ -36,7 +32,6 @@ def common(**kwargs):
 
     COMPRESS_ROOT = os.path.join(base, "../media")
     DEBUG = False
-    TEMPLATE_DEBUG = DEBUG
 
     AWS_S3_CUSTOM_DOMAIN = cloudfront
     AWS_STORAGE_BUCKET_NAME = "thraxil-" + app + "-static-prod"

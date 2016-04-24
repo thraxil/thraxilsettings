@@ -7,7 +7,6 @@ def common(**kwargs):
     base = kwargs['base']
 
     DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
 
     ADMINS = ()
 
@@ -56,16 +55,21 @@ def common(**kwargs):
     MEDIA_ROOT = "/var/www/" + app + "/uploads/"
     MEDIA_URL = '/uploads/'
     SECRET_KEY = 'you must override this'
-    TEMPLATE_LOADERS = [
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    ]
-
-    TEMPLATE_CONTEXT_PROCESSORS = [
-        'django.contrib.auth.context_processors.auth',
-        'django.core.context_processors.debug',
-        'django.core.context_processors.request',
-        'django.core.context_processors.static',
+    TEMPLATES = [
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS' = [
+            "/var/www/" + app + "/templates/",
+            os.path.join(base, "templates"),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.request',
+                'django.core.context_processors.static',
+            ],
+        }
     ]
 
     MIDDLEWARE_CLASSES = [
@@ -80,11 +84,6 @@ def common(**kwargs):
     ]
 
     ROOT_URLCONF = app + '.urls'
-
-    TEMPLATE_DIRS = [
-        "/var/www/" + app + "/templates/",
-        os.path.join(base, "templates"),
-    ]
 
     INSTALLED_APPS = [
         'django.contrib.auth',

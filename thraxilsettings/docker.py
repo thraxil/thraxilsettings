@@ -54,11 +54,6 @@ def common(**kwargs):
     # -------------------------------------------
 
     DEBUG = False
-    TEMPLATE_DEBUG = DEBUG
-
-    TEMPLATE_DIRS = (
-        os.path.join(base, "templates"),
-    )
 
     DATABASES = {
         'default': {
