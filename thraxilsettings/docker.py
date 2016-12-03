@@ -14,9 +14,9 @@ def common(**kwargs):
 
     # required settings:
     SECRET_KEY = os.environ['SECRET_KEY']
-    BROKER_URL = None
+    CELERY_BROKER_URL = None
     if celery:
-        BROKER_URL = os.environ['BROKER_URL']
+        CELERY_BROKER_URL = os.environ['BROKER_URL']
 
     # optional/defaulted settings
     DB_NAME = os.environ.get('DB_NAME', app)
