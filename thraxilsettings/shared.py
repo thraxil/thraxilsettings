@@ -153,6 +153,7 @@ def common(**kwargs):
 
     SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
     SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_AGE = 60 * 60 * 24 * 265 * 5
 
     STATSD_CLIENT = 'statsd.client'
     STATSD_PREFIX = app
