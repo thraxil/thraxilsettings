@@ -21,4 +21,5 @@ def common(**kwargs):
     }
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
     BROKER_URL = "amqp://guest:guest@rabbitmq:5672/"
+    CELERY_BROKER_URL = BROKER_URL
     return locals()
