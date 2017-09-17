@@ -104,7 +104,6 @@ def common(**kwargs):
         'waffle',
         'django_jenkins',
         'smoketest',
-        'django_extensions',
         'django_statsd',
         'gunicorn',
         'django_markwhat',
