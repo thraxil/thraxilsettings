@@ -10,7 +10,7 @@ def common(**kwargs):
     # have to pull in anything that we'll be changing
     STATIC_ROOT = kwargs['STATIC_ROOT']
     INSTALLED_APPS = kwargs['INSTALLED_APPS']
-    MIDDLEWARE_CLASSES = kwargs['MIDDLEWARE_CLASSES']
+    MIDDLEWARE= kwargs['MIDDLEWARE']
 
     # required settings:
     SECRET_KEY = os.environ['SECRET_KEY']
@@ -96,6 +96,6 @@ def common(**kwargs):
             'APP_ID': OPBEAT_APP_ID,
             'SECRET_TOKEN': OPBEAT_SECRET_TOKEN,
         }
-        MIDDLEWARE_CLASSES.insert(0, 'opbeat.contrib.django.middleware.OpbeatAPMMiddleware')
+        MIDDLEWARE.insert(0, 'opbeat.contrib.django.middleware.OpbeatAPMMiddleware')
 
     return locals()

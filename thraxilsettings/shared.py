@@ -77,7 +77,7 @@ def common(**kwargs):
         },
     ]
 
-    MIDDLEWARE_CLASSES = [
+    MIDDLEWARE = [
         'django_statsd.middleware.GraphiteRequestTimingMiddleware',
         'django_statsd.middleware.GraphiteMiddleware',
         'django.middleware.common.CommonMiddleware',
