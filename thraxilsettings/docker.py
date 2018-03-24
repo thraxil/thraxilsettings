@@ -84,18 +84,4 @@ def common(**kwargs):
         'disable_existing_loggers': False,
     }
 
-    OPBEAT_ORGANIZATION_ID=os.environ.get('OPBEAT_ORGANIZATION_ID')
-    OPBEAT_APP_ID=os.environ.get('OPBEAT_APP_ID')
-    OPBEAT_SECRET_TOKEN=os.environ.get('OPBEAT_SECRET_TOKEN')
-    if OPBEAT_ORGANIZATION_ID:
-        INSTALLED_APPS += [
-            'opbeat.contrib.django',
-        ]
-        OPBEAT = {
-            'ORGANIZATION_ID': OPBEAT_ORGANIZATION_ID,
-            'APP_ID': OPBEAT_APP_ID,
-            'SECRET_TOKEN': OPBEAT_SECRET_TOKEN,
-        }
-        MIDDLEWARE.insert(0, 'opbeat.contrib.django.middleware.OpbeatAPMMiddleware')
-
     return locals()
