@@ -84,4 +84,14 @@ def common(**kwargs):
         'disable_existing_loggers': False,
     }
 
+    RAVEN_DSN = os.environ.get('RAVEN_DSN', None)
+
+    if RAVEN_DSN:
+        INSTALLED_APPS += [
+            'raven.contrib.django.raven_compat',
+        ]
+        RAVEN_CONFIG = {
+            'dsn': RAVEN_DSN,
+        }
+
     return locals()
