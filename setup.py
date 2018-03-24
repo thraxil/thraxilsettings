@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="thraxilsettings",
-    version="3.0.0",
+    version="3.1.0",
     author="Anders Pearson",
     author_email="anders@columbia.edu",
     url="https://github.com/thraxil/thraxilsettings",
@@ -19,6 +19,7 @@ setup(
         "django-storages",
         "django-cacheds3storage",
         "statsd",
+        "raven",
         "gunicorn",
     ],
     scripts = [],
