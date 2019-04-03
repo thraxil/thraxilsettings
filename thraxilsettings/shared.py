@@ -86,6 +86,7 @@ def common(**kwargs):
         'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
         'debug_toolbar.middleware.DebugToolbarMiddleware',
         'waffle.middleware.WaffleMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
     ]
 
     ROOT_URLCONF = app + '.urls'
