@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="thraxilsettings",
-    version="4.0.0",
+    version="4.0.1",
     author="Anders Pearson",
     author_email="anders@columbia.edu",
     url="https://github.com/thraxil/thraxilsettings",

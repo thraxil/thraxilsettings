@@ -36,16 +36,27 @@ def common(**kwargs):
     AWS_S3_CUSTOM_DOMAIN = cloudfront
     AWS_STORAGE_BUCKET_NAME = "thraxil-" + app + "-static-prod"
     AWS_PRELOAD_METADATA = True
+<<<<<<< HEAD
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+=======
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+>>>>>>> c877f21 (fix storage module)
     S3_URL = 'https://%s/' % AWS_S3_CUSTOM_DOMAIN
     STATIC_URL = 'https://%s/media/' % AWS_S3_CUSTOM_DOMAIN
     COMPRESS_ENABLED = True
     COMPRESS_OFFLINE = True
     COMPRESS_ROOT = STATIC_ROOT
     COMPRESS_URL = STATIC_URL
+<<<<<<< HEAD
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     MEDIA_URL = S3_URL + '/media/'
     COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+=======
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+    MEDIA_URL = S3_URL + '/media/'
+    COMPRESS_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+>>>>>>> c877f21 (fix storage module)
     AWS_QUERYSTRING_AUTH = False
     return locals()
