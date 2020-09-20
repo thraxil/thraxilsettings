@@ -36,6 +36,7 @@ def common(**kwargs):
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')
     AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY
     AWS_SECRET_ACCESS_KEY = AWS_SECRET_KEY
+    AWS_DEFAULT_ACL = 'public-read'
 
     if 'ALLOWED_HOSTS' in os.environ:
         ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
