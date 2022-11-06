@@ -78,8 +78,6 @@ def common(**kwargs):
     ]
 
     MIDDLEWARE = [
-        'django_statsd.middleware.GraphiteRequestTimingMiddleware',
-        'django_statsd.middleware.GraphiteMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -105,7 +103,6 @@ def common(**kwargs):
         'waffle',
         'django_jenkins',
         'smoketest',
-        'django_statsd',
         'gunicorn',
         'django_markwhat',
     ]
@@ -160,11 +157,6 @@ def common(**kwargs):
     SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_AGE = 60 * 60 * 24 * 265 * 5
-
-    STATSD_CLIENT = 'statsd.client'
-    STATSD_PREFIX = app
-    STATSD_HOST = '127.0.0.1'
-    STATSD_PORT = 8125
 
     LOGGING = {
         'version': 1,

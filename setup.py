@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="thraxilsettings",
-    version="3.3.1",
+    version="4.0.0",
     author="Anders Pearson",
     author_email="anders@columbia.edu",
     url="https://github.com/thraxil/thraxilsettings",
@@ -14,11 +14,9 @@ setup(
         "django-waffle",
         "django-jenkins",
         "django-smoketest",
-        "django-statsd-mozilla",
         "django-markwhat",
         "django-storages",
         "boto3",
-        "statsd",
         "raven",
         "gunicorn",
     ],
