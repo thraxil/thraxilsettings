@@ -24,7 +24,7 @@ def common(**kwargs):
         }
     }
 
-    if 'test' in sys.argv or 'jenkins' in sys.argv:
+    if 'test' in sys.argv:
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
@@ -38,12 +38,6 @@ def common(**kwargs):
         }
 
     TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-    JENKINS_TASKS = (
-        'django_jenkins.tasks.run_pylint',
-        'django_jenkins.tasks.run_pep8',
-        'django_jenkins.tasks.run_pyflakes',
-    )
 
     ALLOWED_HOSTS = ['localhost']
 
@@ -101,7 +95,6 @@ def common(**kwargs):
         'compressor',
         'debug_toolbar',
         'waffle',
-        'django_jenkins',
         'smoketest',
         'gunicorn',
         'django_markwhat',
