@@ -97,7 +97,6 @@ def common(**kwargs):
         'waffle',
         'smoketest',
         'gunicorn',
-        'django_markwhat',
     ]
 
     STATIC_URL = "/media/"
