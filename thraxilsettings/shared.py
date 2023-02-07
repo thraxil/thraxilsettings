@@ -73,6 +73,7 @@ def common(**kwargs):
 
     MIDDLEWARE = [
         'django.middleware.common.CommonMiddleware',
+        "django.middleware.csrf.CsrfViewMiddleware",
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
